@@ -1,3 +1,3 @@
 # computepy
 
-![Computepy](computepy.png)
+<img src="computepy.png" alt="Computepy" width="200"/>
