@@ -1,2 +1,3 @@
 # computepy
-Library
+
+![Computepy](computepy.png)
