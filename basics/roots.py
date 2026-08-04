@@ -11,7 +11,6 @@ Author: Dibyanshu | August 2026
 """
 
 #---- Square Root ----
-
 def sqrt(number, tolerance=1e-10, max_iterations=1000):
     """
     Returns the square root using the Newton-Raphson method.
@@ -37,7 +36,6 @@ def sqrt(number, tolerance=1e-10, max_iterations=1000):
 
 
 #---- Cube Root ----
-
 def cbrt(number, tolerance=1e-10, max_iterations=1000):
     """
     Returns the cube root using Newton-Raphson.
@@ -67,7 +65,6 @@ def cbrt(number, tolerance=1e-10, max_iterations=1000):
     
 
 #---- Nth Root ----
-
 def nth_root(number, n, tolerance=1e-10, max_iterations=1000):
     """
     Returns the nth root using Newton-Raphson.
@@ -99,3 +96,35 @@ def nth_root(number, n, tolerance=1e-10, max_iterations=1000):
     if negative:
         return -(guess)
     return guess
+
+
+#---- Perfect Root Checks ----
+def is_perfect_square(number):
+    """
+    Returns True if number is a perfect square.
+    """
+
+    if number < 0:
+        return False
+    root = int(sqrt(number))
+    return root * root == number
+
+def is_perfect_cube(number):
+    """
+    Returns True if number is a perfect cube.
+    """
+    
+    root = int(cbrt(number))
+    return root * root * root == number
+
+def is_perfect_power(number, power):
+    """
+    Returns True if number is a perfect nth power.
+    """
+
+    root = int(nth_root(number, power))
+    result = 1
+
+    for _ in range(power):
+        result *= root
+    return result == number
