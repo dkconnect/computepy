@@ -8,6 +8,7 @@ Comparison Mathematical operations.
 Author: Dibyanshu | July 2026
 """
 
+#---- Extrema Operations ----
 def minimum(*numbers):
     if len(numbers) == 0:
         raise ValueError("No numbers given.")
@@ -22,16 +23,6 @@ def minimum(*numbers):
 
 ''' August 2026 '''
 
-def minimum(*numbers):
-    if len(numbers) == 0:
-        raise ValueError("No numbers given.")
-
-    smallest = numbers[0]
-    for number in numbers:
-        if number < smallest:
-            smallest = number
-    return smallest
-
 def maximum(*numbers):
     if len(numbers) == 0:
         raise ValueError("No numbers given.")
@@ -45,6 +36,7 @@ def maximum(*numbers):
 def minmax(*numbers):
     return minimum(*numbers), maximum(*numbers)
 
+#---- Range & Relational Checks ----
 def between(value, minimum, maximum):
     return minimum <= value <= maximum
 
@@ -54,7 +46,8 @@ def compare(a, b):
     if a < b:
         return -1
     return 0
-
+    
+#---- Sign & Value Testing ----
 def is_positive(x):
     return x > 0
 
@@ -71,6 +64,7 @@ def sign(x):
         return -1
     return 0
 
+#---- Parity & Divisibility ----
 def is_even(n):
     return n % 2 == 0
 
