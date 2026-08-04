@@ -63,7 +63,7 @@ def increment(x):
 def decrement(x):
     return x - 1
   
-# -----------------=-----
+# -----------------------
 # COLLECTION OPERATIONS
 # -----------------------
 def sum_numbers(*numbers):
@@ -96,7 +96,6 @@ def weighted_average(values, weights):
     for value, weight in zip(values, weights):
         weighted_sum += value * weight
     return weighted_sum / total_weight
-
 
 # -------------
 # DIFFERENCES
