@@ -18,7 +18,6 @@ def minimum(*numbers):
     for number in numbers:
         if number < smallest:
             smallest = number
-
     return smallest
 
 ''' August 2026 '''
