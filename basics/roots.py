@@ -36,4 +36,66 @@ def sqrt(number, tolerance=1e-10, max_iterations=1000):
     return guess
 
 
-    return sqrt(a) + sqrt(b)
+#---- Cube Root ----
+
+def cbrt(number, tolerance=1e-10, max_iterations=1000):
+    """
+    Returns the cube root using Newton-Raphson.
+    """
+
+    if number == 0:
+        return 0
+    negative = False
+
+    if number < 0:
+        negative = True
+        number = -(number)
+    guess = number
+
+    for _ in range(max_iterations):
+        new_guess = (2 * guess + number / (guess * guess)) / 3
+
+        if abs(new_guess - guess) < tolerance:
+            if negative:
+                return -(new_guess)
+            return new_guess
+        guess = new_guess
+
+    if negative:
+        return -(guess)
+    return guess
+    
+
+#---- Nth Root ----
+
+def nth_root(number, n, tolerance=1e-10, max_iterations=1000):
+    """
+    Returns the nth root using Newton-Raphson.
+    """
+
+    if n <= 0:
+        raise ValueError("Root must be greater than zero.")
+    if number == 0:
+        return 0
+    if number < 0 and n % 2 == 0:
+        raise ValueError("Even root of a negative number is undefined.")
+    negative = False
+
+    if number < 0:
+        negative = True
+        number = -(number)
+    guess = number
+
+    for _ in range(max_iterations):
+        numerator = ((n - 1) * guess) + (number / (guess ** (n - 1)))
+        new_guess = numerator / n
+
+        if abs(new_guess - guess) < tolerance:
+            if negative:
+                return -(new_guess)
+            return new_guess
+        guess = new_guess
+
+    if negative:
+        return -(guess)
+    return guess
