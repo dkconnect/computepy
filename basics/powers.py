@@ -68,3 +68,69 @@ def power_of_power(base, exponent1, exponent2):
 
 
 #---- Number Checks ----
+def is_square(n):
+    if n < 0:
+        return False
+
+    i = 0
+    while i * i <= n:
+        if i * i == n:
+            return True
+        i += 1
+    return False
+
+def is_cube(n):
+    if n < 0:
+        n = -n
+
+    i = 0
+    while i * i * i <= n:
+        if i * i * i == n:
+            return True
+        i += 1
+    return False
+
+
+#---- Powers of Ten ----
+def power_of_ten(exponent):
+    return 10 ** exponent
+
+def is_power_of_ten(n):
+    if n <= 0:
+        return False
+
+    while n > 1:
+        if n % 10 != 0:
+            return False
+        n //= 10
+    return True
+
+
+#---- Powers of Two ----
+def power_of_two(exponent):
+    return 2 ** exponent
+
+def is_power_of_two(n):
+    if n <= 0:
+        return False
+        
+    while n > 1:
+        if n % 2 != 0:
+            return False
+        n //= 2
+    return True
+
+
+#---- Powers of Three ----
+def power_of_three(exponent):
+    return 3 ** exponent
+
+def is_power_of_three(n):
+    if n <= 0:
+        return False
+
+    while n > 1:
+        if n % 3 != 0:
+            return False
+        n //= 3
+    return True
