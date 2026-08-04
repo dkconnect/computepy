@@ -134,3 +134,19 @@ def is_power_of_three(n):
             return False
         n //= 3
     return True
+
+
+#---- Miscellaneous ----
+def exponent(base, value):
+    """
+    Alias for power().
+    """
+    return power(base, value)
+
+def square_distance(a, b):
+    diff = a - b
+    return diff * diff
+
+def cube_distance(a, b):
+    diff = a - b
+    return diff * diff * diff
