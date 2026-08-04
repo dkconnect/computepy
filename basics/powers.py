@@ -8,7 +8,6 @@ Power Functions
 Author: Dibyanshu | August 2026
 """
 
-
 #---- Basic Powers ----
 def power(base, exponent):
     return base ** exponent
