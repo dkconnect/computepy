@@ -121,10 +121,33 @@ def is_perfect_power(number, power):
     """
     Returns True if number is a perfect nth power.
     """
-
+    
     root = int(nth_root(number, power))
     result = 1
 
     for _ in range(power):
         result *= root
     return result == number
+
+
+#---- Root Utilities ----
+def reciprocal_root(number):
+    """
+    Returns 1 / sqrt(number).
+    """
+    
+    if number <= 0:
+        raise ValueError("Number must be positive.")
+    return 1 / sqrt(number)
+
+def root_difference(a, b):
+    """
+    Difference between square roots.
+    """
+    return sqrt(a) - sqrt(b)
+
+def root_sum(a, b):
+    """
+    Sum of square roots.
+    """
+    return sqrt(a) + sqrt(b)
