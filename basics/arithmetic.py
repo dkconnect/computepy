@@ -12,10 +12,10 @@ Author: Dibyanshu | July 2026
 '''
 Starting with basics operation, even they are part of arithmetic operations.
 '''
+
 # ------------------
 # BASIC OPERATIONS
 # ------------------
-
 def add(a, b):
     return a + b
   
@@ -65,7 +65,6 @@ def decrement(x):
 # -----------------=-----
 # COLLECTION OPERATIONS
 # -----------------------
-
 def sum_numbers(*numbers):
     total = 0
     for number in numbers:
@@ -82,7 +81,6 @@ def average(*numbers):
     if len(numbers) == 0:
         raise ValueError("At least one number is required.")
     return sum_numbers(*numbers) / len(numbers)
-
 
 def weighted_average(values, weights):
     if len(values) != len(weights):
@@ -102,7 +100,6 @@ def weighted_average(values, weights):
 # -------------
 # DIFFERENCES
 # -------------
-
 def difference(a, b):
     return a - b
 
