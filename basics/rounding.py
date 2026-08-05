@@ -110,3 +110,54 @@ def round_down_to_multiple(number, multiple):
 
 
 #---- Significant Figures ----
+def round_significant(number, figures):
+    """
+    Rounds to the specified number of significant figures.
+    """
+    if number == 0:
+        return 0
+    negative = False
+
+    if number < 0:
+        negative = True
+        number = -number
+
+    exponent = 0
+    value = number
+
+    while value >= 10:
+        value /= 10
+        exponent += 1
+
+    while value < 1:
+        value *= 10
+        exponent -= 1
+
+    factor = 10 ** (figures - exponent - 1)
+    result = round(number * factor) / factor
+
+    if negative:
+        return -(result)
+    return result
+
+
+#---- Decimal Checks ----
+def has_decimal(number):
+    """
+    Returns True if the number has a fractional part.
+    """
+    return number != int(number)
+
+
+def fractional_part(number):
+    """
+    Returns only the fractional part.
+    """
+    return number - truncate(number)
+
+
+def integer_part(number):
+    """
+    Returns only the integer part.
+    """
+    return truncate(number)
