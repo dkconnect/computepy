@@ -19,7 +19,6 @@ def floor(number):
         
     return integer - 1
   
-
 def ceil(number):
     """
     Returns the smallest integer greater than or equal to the number.
@@ -31,7 +30,6 @@ def ceil(number):
     if number > 0:
         return integer + 1
     return integer
-
 
 def truncate(number):
     """
@@ -58,14 +56,12 @@ def round_to(number, digits):
     factor = 10 ** digits
     return round(number * factor) / factor
 
-
 def round_up(number, digits=0):
     """
     Always rounds upward.
     """
     factor = 10 ** digits
     return ceil(number * factor) / factor
-
 
 def round_down(number, digits=0):
     """
@@ -86,7 +82,6 @@ def round_nearest(number, multiple):
     quotient = number / multiple
     return round(quotient) * multiple
 
-
 def round_up_to_multiple(number, multiple):
     """
     Rounds upward to the nearest multiple.
@@ -96,7 +91,6 @@ def round_up_to_multiple(number, multiple):
 
     quotient = number / multiple
     return ceil(quotient) * multiple
-
 
 def round_down_to_multiple(number, multiple):
     """
@@ -148,13 +142,11 @@ def has_decimal(number):
     """
     return number != int(number)
 
-
 def fractional_part(number):
     """
     Returns only the fractional part.
     """
     return number - truncate(number)
-
 
 def integer_part(number):
     """
