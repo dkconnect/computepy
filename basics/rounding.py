@@ -73,3 +73,40 @@ def round_down(number, digits=0):
     """
     factor = 10 ** digits
     return floor(number * factor) / factor
+
+
+#---- Precision Helpers ----
+def round_nearest(number, multiple):
+    """
+    Rounds to the nearest multiple.
+    """
+    if multiple == 0:
+        raise ZeroDivisionError("Multiple cannot be zero.")
+
+    quotient = number / multiple
+    return round(quotient) * multiple
+
+
+def round_up_to_multiple(number, multiple):
+    """
+    Rounds upward to the nearest multiple.
+    """
+    if multiple == 0:
+        raise ZeroDivisionError("Multiple cannot be zero.")
+
+    quotient = number / multiple
+    return ceil(quotient) * multiple
+
+
+def round_down_to_multiple(number, multiple):
+    """
+    Rounds downward to the nearest multiple.
+    """
+    if multiple == 0:
+        raise ZeroDivisionError("Multiple cannot be zero.")
+
+    quotient = number / multiple
+    return floor(quotient) * multiple
+
+
+#---- Significant Figures ----
