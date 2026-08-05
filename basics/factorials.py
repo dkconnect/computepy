@@ -9,7 +9,6 @@ Author: Dibyanshu | August 2026
 """
 
 #---- Helpers ----
-
 def _product(start, end, step=1):
     """
     Returns the product of integers from start to end.
