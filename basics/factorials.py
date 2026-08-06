@@ -77,3 +77,29 @@ def multifactorial(n, step):
         raise ValueError("step must be positive.")
 
     return _product(n, 1, -step)
+
+
+#---- Generalized Factorials ----
+def rising_factorial(x, n):
+    """
+    Returns x(x+1)(x+2)... for n terms.
+    """
+    if n < 0:
+        raise ValueError("n must be non-negative.")
+    result = 1
+
+    for i in range(n):
+        result *= (x + i)
+    return result
+
+def falling_factorial(x, n):
+    """
+    Returns x(x-1)(x-2)... for n terms.
+    """
+    if n < 0:
+        raise ValueError("n must be non-negative.")
+    result = 1
+
+    for i in range(n):
+        result *= (x - i)
+    return result
