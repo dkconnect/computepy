@@ -164,3 +164,58 @@ def decimal_to_integer(number, places):
     if places < 0:
         raise ValueError("places must be non-negative.")
     return int(number * _power_of_ten(places))
+
+
+#---- Decimal Comparison ----
+def compare_decimals(a, b):
+    """
+    Compares two decimal values.
+
+    Returns:
+        1  if a > b
+        0  if a == b
+       -1  if a < b
+    """
+    if a > b:
+        return 1
+
+    if a < b:
+        return -1
+    return 0
+
+def decimals_equal(a, b):
+    """
+    Returns True if two decimals are equal.
+    """
+    return a == b
+    
+
+#---- Decimal Operations ----
+def decimal_sum(*numbers):
+    """
+    Returns the sum of decimal numbers.
+    """
+    total = 0
+
+    for number in numbers:
+        total += number
+    return total
+
+def decimal_product(*numbers):
+    """
+    Returns the product of decimal numbers.
+    """
+    result = 1
+
+    for number in numbers:
+        result *= number
+    return result
+
+def decimal_average(*numbers):
+    """
+    Returns the arithmetic mean of decimal numbers.
+    """
+    if len(numbers) == 0:
+        raise ValueError("At least one number is required.")
+
+    return decimal_sum(*numbers) / len(numbers)
