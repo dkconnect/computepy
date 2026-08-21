@@ -179,3 +179,44 @@ def improper_fraction(numerator, denominator):
     whole = numerator // denominator
     remainder = numerator % denominator
     return whole, remainder, denominator
+
+
+#---- Fraction Comparison ----
+def compare_fractions(a, b, c, d):
+    """
+    Compares: a/b and c/d
+
+    Returns:
+        1  if a/b > c/d
+        0  if a/b = c/d
+       -1  if a/b < c/d
+    """
+    if b == 0 or d == 0:
+        raise ZeroDivisionError("Denominator cannot be zero.")
+
+    left = a * d
+    right = c * b
+
+    if left > right:
+        return 1
+    if left < right:
+        return -1
+    return 0
+
+def fractions_equal(a, b, c, d):
+    """
+    Returns True if two fractions represent the same value.
+    """
+    return compare_fractions(a, b, c, d) == 0
+
+def fraction_less(a, b, c, d):
+    """
+    Returns True if a/b < c/d.
+    """
+    return compare_fractions(a, b, c, d) == -1
+
+def fraction_greater(a, b, c, d):
+    """
+    Returns True if a/b > c/d.
+    """
+    return compare_fractions(a, b, c, d) == 1
