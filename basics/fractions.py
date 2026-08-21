@@ -220,3 +220,42 @@ def fraction_greater(a, b, c, d):
     Returns True if a/b > c/d.
     """
     return compare_fractions(a, b, c, d) == 1
+
+
+#---- Fraction Conversion ----
+def fraction_to_decimal(numerator, denominator):
+    """
+    Converts a fraction to a decimal value.
+    """
+    if denominator == 0:
+        raise ZeroDivisionError("Denominator cannot be zero.")
+    return numerator / denominator
+
+def decimal_to_fraction(number, max_digits=10):
+    """
+    Converts a finite decimal number into a fraction.
+
+    Example: decimal_to_fraction(0.75) -> (3, 4)
+    """
+    if not isinstance(max_digits, int):
+        raise TypeError("max_digits must be an integer.")
+
+    if max_digits < 0:
+        raise ValueError("max_digits must be non-negative.")
+    negative = number < 0
+
+    if negative:
+        number = -number
+    multiplier = 1
+
+    for _ in range(max_digits):
+        if number * multiplier == int(number * multiplier):
+            break
+        multiplier *= 10
+
+    numerator = int(number * multiplier)
+    denominator = multiplier
+
+    if negative:
+        numerator = -numerator
+    return _simplify(numerator, denominator)
