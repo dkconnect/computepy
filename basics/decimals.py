@@ -84,3 +84,41 @@ def remove_trailing_zeros(number):
     if number == int(number):
         return int(number)
     return number
+
+
+#---- Decimal Digits ----
+def decimal_digit(number, position):
+    """
+    Returns a decimal digit at a given position.
+    position=1 -> tenths
+    position=2 -> hundredths
+    position=3 -> thousandths
+    """
+    if position <= 0:
+        raise ValueError("Position must be positive.")
+
+    number = _absolute(number)
+    scaled = number * _power_of_ten(position)
+    integer_value = int(scaled)
+    return integer_value % 10
+
+def decimal_digits(number, count=None):
+    """
+    Returns decimal digits as a list.
+
+    Example: decimal_digits(12.345) -> [3, 4, 5]
+    """
+    number = _absolute(number)
+    fraction = number - int(number)
+    digits = []
+
+    if count is None:
+        count = count_decimal_places(number)
+
+    for _ in range(count):
+        fraction *= 10
+        digit = int(fraction)
+        digits.append(digit)
+        fraction -= digit
+
+    return digits
