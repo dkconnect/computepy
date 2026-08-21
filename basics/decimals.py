@@ -57,3 +57,30 @@ def integer_part(number):
     Returns only the integer part of a number.
     """
     return int(number)
+
+
+#---- Decimal Checks ----
+def is_integer(number):
+    """
+    Returns True if the number has no fractional part.
+    """
+    return number == int(number)
+
+def has_decimal(number):
+    """
+    Returns True if the number contains a fractional part.
+    """
+    return not is_integer(number)
+
+
+#---- Trailing Zeros ----
+def remove_trailing_zeros(number):
+    """
+    Removes unnecessary trailing zeros from a decimal.
+
+    Example: remove_trailing_zeros(12.3400) -> 12.34
+    """
+
+    if number == int(number):
+        return int(number)
+    return number
