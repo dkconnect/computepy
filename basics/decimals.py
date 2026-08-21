@@ -122,3 +122,45 @@ def decimal_digits(number, count=None):
         fraction -= digit
 
     return digits
+
+
+#---- Decimal Construction ----
+def from_decimal_digits(integer, digits):
+    """
+    Constructs a decimal number from an integer and decimal digits.
+    Example: from_decimal_digits(12, [3, 4, 5]) -> 12.345
+    """
+    if len(digits) == 0:
+        return integer
+
+    value = integer
+    divisor = 10
+
+    for digit in digits:
+        if digit < 0 or digit > 9:
+            raise ValueError("Each digit must be between 0 and 9.")
+        value += digit / divisor
+        divisor *= 10
+    return value
+
+
+#---- Decimal Shifting ----
+def shift_decimal(number, places):
+    """
+    Moves the decimal point by a number of places.
+    Positive places move it right.
+    Negative places move it left.
+
+    Example: shift_decimal(12.34, 2) -> 1234.0
+    """
+    return number * _power_of_ten(places)
+
+def decimal_to_integer(number, places):
+    """
+    Converts a decimal portion into an integer representation.
+
+    Example: decimal_to_integer(12.345, 3) -> 12345
+    """
+    if places < 0:
+        raise ValueError("places must be non-negative.")
+    return int(number * _power_of_ten(places))
