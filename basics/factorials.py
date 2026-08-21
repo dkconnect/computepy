@@ -103,3 +103,91 @@ def falling_factorial(x, n):
     for i in range(n):
         result *= (x - i)
     return result
+
+
+#---- Utilities ----
+def factorial_ratio(a, b):
+    """
+    Returns a! / b!
+    """
+    if a < 0 or b < 0:
+        raise ValueError("Arguments must be non-negative.")
+    return factorial(a) / factorial(b)
+
+def inverse_factorial(value):
+    """
+    Returns n if value = n!.
+    """
+    if value < 1:
+        raise ValueError("Value must be positive.")
+    current = 1
+    n = 1
+
+    while current < value:
+        n += 1
+        current *= n
+
+    if current != value:
+        raise ValueError("Value is not a factorial.")
+    return n
+
+def factorial_digits(n):
+    """
+    Returns the number of digits in n!.
+    """
+    value = factorial(n)
+    digits = 0
+    
+    while value > 0:
+        digits += 1
+        value //= 10
+    return digits
+
+def trailing_zeros(n):
+    """
+    Returns the number of trailing zeros in n!.
+    """
+    if n < 0:
+        raise ValueError("n must be non-negative.")
+
+    count = 0
+    divisor = 5
+
+    while divisor <= n:
+        count += n // divisor
+        divisor *= 5
+    return count
+    
+
+#---- Checks ----
+def is_factorial(number):
+    """
+    Returns True if number is a factorial.
+    """
+    if number < 1:
+        return False
+    current = 1
+    n = 1
+
+    while current < number:
+        n += 1
+        current *= n
+    return current == number
+
+
+#---- Tables ----
+def factorial_table(n):
+    """
+    Returns a list of tuples:
+    [(0,0!), (1,1!), ...]
+    """
+    if n < 0:
+        raise ValueError("n must be non-negative.")
+
+    table = []
+    value = 1
+    table.append((0, 1))
+
+    for i in range(1, n + 1):
+        value *= i
+        table.append((i, value))
