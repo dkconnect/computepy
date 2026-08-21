@@ -219,3 +219,94 @@ def decimal_average(*numbers):
         raise ValueError("At least one number is required.")
 
     return decimal_sum(*numbers) / len(numbers)
+
+
+#---- Decimal Percentage ----
+def decimal_to_percent(number):
+    """
+    Converts a decimal to a percentage.
+
+    Example: decimal_to_percent(0.75) -> 75
+    """
+    return number * 100
+
+def percent_to_decimal(percent):
+    """
+    Converts a percentage to a decimal.
+
+    Example: percent_to_decimal(75) -> 0.75
+    """
+    return percent / 100
+
+
+#---- Scientific Notation ----
+def scientific_notation(number):
+    """
+    Returns a number as: (coefficient, exponent)
+
+    Example: scientific_notation(1234) -> (1.234, 3)
+    """
+    if number == 0:
+        return 0, 0
+    negative = number < 0
+
+    if negative:
+        number = -number
+    exponent = 0
+
+    while number >= 10:
+        number /= 10
+        exponent += 1
+
+    while number < 1:
+        number *= 10
+        exponent -= 1
+
+    if negative:
+        number = -(number)
+    return number, exponent
+
+def from_scientific_notation(coefficient, exponent):
+    """
+    Converts scientific notation back into a number.
+
+    Example: from_scientific_notation(1.234, 3) -> 1234
+    """
+    return coefficient * _power_of_ten(exponent)
+
+
+#---- Decimal Expansion ----
+def decimal_expansion(numerator, denominator, digits=10):
+    """
+    Calculates the decimal expansion of a fraction.
+
+    Example: decimal_expansion(1, 3, 5) -> 0.33333
+    """
+    if denominator == 0:
+        raise ZeroDivisionError("Denominator cannot be zero.")
+
+    if digits < 0:
+        raise ValueError("digits must be non-negative.")
+
+    negative = (numerator < 0) != (denominator < 0)
+    numerator = _absolute(numerator)
+    denominator = _absolute(denominator)
+
+    integer = numerator // denominator
+    remainder = numerator % denominator
+    result = integer
+    place = 10
+
+    for _ in range(digits):
+        remainder *= 10
+        digit = remainder // denominator
+        remainder %= denominator
+        result += digit / place
+        place *= 10
+
+        if remainder == 0:
+            break
+    if negative:
+        return -(result)
+
+    return result
