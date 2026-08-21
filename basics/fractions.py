@@ -68,3 +68,40 @@ def simplify_fraction(numerator, denominator):
         simplify_fraction(6, 8) -> (3, 4)
     """
     return _simplify(numerator, denominator)
+
+
+#---- Fraction Arithmetic ----
+def add_fraction(a, b, c, d):
+    """
+    Returns: a/b + c/d
+    """
+    numerator = (a * d) + (c * b)
+    denominator = b * d
+    return _simplify(numerator, denominator)
+
+def subtract_fraction(a, b, c, d):
+    """
+    Returns: a/b - c/d
+    """
+    numerator = (a * d) - (c * b)
+    denominator = b * d
+    return _simplify(numerator, denominator)
+
+def multiply_fraction(a, b, c, d):
+    """
+    Returns: a/b × c/d
+    """
+    numerator = a * c
+    denominator = b * d
+    return _simplify(numerator, denominator)
+
+def divide_fraction(a, b, c, d):
+    """
+    Returns: a/b ÷ c/d
+    """
+    if c == 0:
+        raise ZeroDivisionError("Cannot divide by a zero fraction.")
+
+    numerator = a * d
+    denominator = b * c
+    return _simplify(numerator, denominator)
