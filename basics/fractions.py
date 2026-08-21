@@ -8,7 +8,6 @@ Fraction Functions
 Author: Dibyanshu | August 2026
 """
 
-
 #---- Internal Helpers ----
 def _gcd(a, b):
     """
