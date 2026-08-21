@@ -149,3 +149,33 @@ def fraction_sign(numerator, denominator):
     if numerator < 0:
         return -1
     return 0
+
+
+#---- Mixed Fractions ----
+def mixed_fraction(whole, numerator, denominator):
+    """
+    Converts a mixed fraction into an improper fraction.
+
+    Example: 
+        mixed_fraction(2, 1, 3) -> (7, 3)
+    """
+    if denominator == 0:
+        raise ZeroDivisionError("Denominator cannot be zero.")
+
+    if whole < 0:
+        numerator = -abs(numerator)
+    numerator = (whole * denominator) + numerator
+    return _simplify(numerator, denominator)
+
+def improper_fraction(numerator, denominator):
+    """
+    Converts an improper fraction into: (whole, remainder, denominator)
+
+    Example:
+        improper_fraction(7, 3) -> (2, 1, 3)
+    """
+    numerator, denominator = _normalize(numerator, denominator)
+
+    whole = numerator // denominator
+    remainder = numerator % denominator
+    return whole, remainder, denominator
