@@ -104,3 +104,48 @@ def divide_fraction(a, b, c, d):
     numerator = a * d
     denominator = b * c
     return _simplify(numerator, denominator)
+
+
+#---- Fraction Properties ----
+def reciprocal_fraction(numerator, denominator):
+    """
+    Returns the reciprocal.
+
+    Example:
+        reciprocal_fraction(3, 4) -> (4, 3)
+    """
+    if numerator == 0:
+        raise ZeroDivisionError("Zero has no reciprocal.")
+    return _normalize(denominator, numerator)
+
+def negate_fraction(numerator, denominator):
+    """
+    Returns the negative of a fraction.
+    """
+    return _normalize(-numerator, denominator)
+
+def absolute_fraction(numerator, denominator):
+    """
+    Returns the absolute value of a fraction.
+    """
+    numerator, denominator = _normalize(numerator, denominator)
+
+    if numerator < 0:
+        numerator = -numerator
+    return numerator, denominator
+
+def fraction_sign(numerator, denominator):
+    """
+    Returns:
+        1  if positive
+        0  if zero
+       -1  if negative
+    """
+    numerator, denominator = _normalize(numerator, denominator)
+
+    if numerator > 0:
+        return 1
+
+    if numerator < 0:
+        return -1
+    return 0
