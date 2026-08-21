@@ -259,3 +259,29 @@ def decimal_to_fraction(number, max_digits=10):
     if negative:
         numerator = -numerator
     return _simplify(numerator, denominator)
+
+
+#---- Fraction Decomposition ----
+def fraction_parts(numerator, denominator):
+    """
+    Returns the numerator and denominator after normalization.
+    """
+    return _normalize(numerator, denominator)
+
+def numerator(numerator_value, denominator_value):
+    """
+    Returns the normalized numerator.
+    """
+    return _normalize(
+        numerator_value,
+        denominator_value
+    )[0]
+
+def denominator(numerator_value, denominator_value):
+    """
+    Returns the normalized denominator.
+    """
+    return _normalize(
+        numerator_value,
+        denominator_value
+    )[1]
