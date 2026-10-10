@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "computepy"
+version = "0.1.0"
+description = "A mathematics library built from scratch in Python"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools]
+packages = ["basics"]
